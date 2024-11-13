@@ -48,6 +48,14 @@
                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                             {{ $product->price_eur }}
                                         </td>
+
+                                        @if (auth()->user()->is_admin)
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                <a href="{{ route('products.edit', $product) }}" class="">
+                                                    Edit
+                                                </a>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @empty
                                     <tr class="bg-white">
