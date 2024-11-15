@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ProductController extends Controller
 {
+
+    // @pest-arch-ignore-next-line
+    public function download(): BinaryFileResponse
+    {
+        return response()->download(storage_path('files/product-specification.pdf'));
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -222,6 +222,12 @@ class ProductsTest extends TestCase
         $response->assertStatus(422);
     }
 
+    public function test_unauthenticated_user_cannot_access_products_page()
+    {
+        $response = $this->get('/products');
+
+        $response->assertRedirect('login');
+    }
 
 
 
